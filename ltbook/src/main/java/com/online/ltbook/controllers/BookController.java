@@ -52,12 +52,12 @@ public class BookController {
     @PostMapping("/create")
     ResponseEntity<ResponseObject> insertBook(@RequestBody Book newBook){
 
-        List<Book> foundBook = repository.findByName(newBook.getName().trim());
-        if(foundBook.size() > 0){
-            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
-                    new ResponseObject("fail", "Book name already exist", "")
-            );
-        }
+//        List<Book> foundBook = repository.findByName(newBook.getName().trim());
+//        if(foundBook.size() > 0){
+//            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
+//                    new ResponseObject("fail", "Book name already exist", "")
+//            );
+//        }
         return ResponseEntity.status(HttpStatus.OK).body(
             new ResponseObject("success", "create new book successfully", repository.save(newBook))
         );
